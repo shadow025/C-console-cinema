@@ -1,0 +1,55 @@
+# Archivos compilados
+*.o
+*.out
+*.exe
+
+# Archivos generados por CMake
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Archivos generados por CMake
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+cmake_install.cmake
+Makefile
+
+# Archivos generados por compilación
+Debug/
+Release/
+
+# Archivos generados por IDEs
+.vscode/
+.idea/
+.vs/
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
