@@ -18,6 +18,12 @@ struct Pelicula {
     int minutoFin;
 };
 
+// Declaración global de la película seleccionada
+Pelicula peliculaSeleccionada;
+
+// Declaración global del contador de recibos
+int contador = 0;
+
 // Función para asignar un asiento
 void asignarAsiento(Asientos& sala) {
     int numeroAsiento;
@@ -61,7 +67,6 @@ void asignarAsiento(Asientos& sala) {
     sala.asientos[numeroAsiento - 1] = 1;
 
     // Generar recibo
-    int contador = 0;
     contador++;
     string nombre_del_recibo = "Recibo_de_" + nombre + "_" + apellido + "_nº" + to_string(contador) + ".txt";
     ofstream archivo(nombre_del_recibo);
@@ -69,6 +74,8 @@ void asignarAsiento(Asientos& sala) {
         archivo << "---------------------------------" << endl;
         archivo << "|        CINE ADMINBITS        |" << endl;
         archivo << "---------------------------------" << endl;
+        archivo << "| Película: " << peliculaSeleccionada.nombre << " |" << endl;
+        archivo << "| Hora de inicio: " << peliculaSeleccionada.horaInicio << ":" << peliculaSeleccionada.minutoInicio << " |" << endl;
         archivo << "| Nombre: " << nombre << " " << apellido << " |" << endl;
         archivo << "| Asiento número: " << numeroAsiento << " |" << endl;
         archivo << "| Número de documento: " << documentodeidentidad << " |" << endl;
@@ -77,11 +84,6 @@ void asignarAsiento(Asientos& sala) {
         archivo.close();
         cout << "El archivo con el costo del asiento ha sido creado correctamente." << endl;
     }
-    else {
-        cout << "No se pudo crear el archivo." << endl;
-    }
-
-    cout << "Asiento " << numeroAsiento << " asignado correctamente." << endl;
 }
 
 // Función para imprimir el estado de los asientos
@@ -144,7 +146,7 @@ void reiniciarAsientos(Asientos& sala1, Asientos& sala2) {
         (hour == 22 && min >= 31 && min <= 32)) {
         for (int i = 0; i < 100; i++) {
             sala2.asientos[i] = 0;
-            cout << "|------Los asientos de la sala 2 han sido reiniciados.------|" << endl;
+            cout << "|------Los asientos de la sala 2// han sido reiniciados.------|" << endl;
         }
     }
 }
@@ -199,8 +201,6 @@ int main() {
         int salaElegida;
         cin >> salaElegida;
 
-        Pelicula peliculaSeleccionada;
-
         if (salaElegida == 1) {
             cout << "Selecciona una película de la sala 1:" << endl;
             peliculaSeleccionada = seleccionarPelicula();
@@ -248,7 +248,6 @@ int main() {
 
         obtenerHoraLocal(); // Obtener y mostrar la hora local
         reiniciarAsientos(sala1, sala2); // Reiniciar asientos según el horario
-
     }
 
     return 0;
