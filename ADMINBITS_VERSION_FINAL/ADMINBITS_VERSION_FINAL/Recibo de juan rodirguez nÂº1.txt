@@ -1,0 +1,8 @@
+---------------------------------
+|        CINE ADMINBITS        |
+---------------------------------
+| Nombre juan rodirguez |
+| Asiento numero: 1 |
+| Numero de de documento: 1092528919 |
+| Costo del asiento: 7000$
+---------------------------------
